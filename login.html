@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 300px;
+            padding: 16px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 4px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            font-weight: 10PX; /* This will make the text extra bold */
+            font-size: 30px; /* This will increase the font size */
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SMD Fixture MAP</h2>
+
+        <form id="loginForm">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+
+            <div style="background-color:#f1f1f1; padding-top:10px;">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- Add jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Your existing script here -->
+    <script>
+    $(document).ready(function(){
+        $("#loginForm").on("submit", function(event){
+            event.preventDefault();
+
+            var username = $(this).find('input[name=uname]').val();
+            var password = $(this).find('input[name=psw]').val();
+
+            if (!username || !password) {
+                alert("Please enter a username and password.");
+                return;
+            }
+
+            // Send a POST request to the server for login
+            $.ajax({
+                url: "login.php",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function(data){
+                    // Handle the server's response here
+                    if (data === 'success') {
+                        // If login is successful, redirect to another page
+                        window.location.href = 'home.php';
+                    } else {
+                        // If login fails, show an error message
+                        alert('Invalid username or password.');
+                    }
+                }
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>

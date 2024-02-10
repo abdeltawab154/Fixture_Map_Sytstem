@@ -1,0 +1,67 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    max-width: 100%;
+    margin: 0;
+}
+
+header {
+    background-color: #000000; /* A black color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold; /* This will make the text bold */
+}
+
+h2 {
+    background-color: #17a2b8; /* A beautiful shade of teal */
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    border-color: #28a745; /* A fresh green color */
+    border-width: 2px;
+}
+
+.card-header {
+    background-color: #28a745; /* Same green as the card border */
+    color: white;
+    font-size: small;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-group input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.form-group input::placeholder {
+    font-size: small;
+}
+
+.btn-primary {
+    background-color: #007bff; /* A bright blue color */
+}
+.navbar {
+    background-color: #28a745; /* A fresh green color */
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
